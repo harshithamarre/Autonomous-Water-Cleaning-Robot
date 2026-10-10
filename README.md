@@ -1,409 +1,488 @@
-# 🌊 Autonomous Multi-Robot Water Surface Cleaning System
+# 🌊 Water Surface Cleaning Robot Using Controller
 
-An intelligent MATLAB-based simulation of an **Autonomous Multi-Robot Water Surface Cleaning System** designed to collect floating waste from various aquatic environments. The project demonstrates **coverage path planning, multi-robot coordination, obstacle avoidance, trash detection, and performance evaluation** in dynamic water environments such as lakes, rivers, ponds, pools, and oceans.
+A MATLAB-based simulation project for an intelligent **Water Surface Cleaning Robot** designed to collect floating waste from different aquatic environments. The project explores two approaches to water surface cleaning: **controller-based autonomous navigation** and **multi-robot autonomous cleaning**.
+
+The controller-based version incorporates advanced control algorithms to improve robot movement, obstacle avoidance, target tracking, and navigation under environmental disturbances. The multi-robot version demonstrates systematic area coverage, coordination between robots, waste collection, and performance evaluation.
+
+The project provides a simulation framework for studying intelligent water-cleaning robots before potential real-world implementation.
 
 ---
 
 ## 📌 Project Overview
 
-Water pollution caused by floating waste is a major environmental challenge. Manual cleaning of large water bodies is time-consuming, expensive, and often inefficient.
+Floating waste is a major environmental problem that affects lakes, rivers, ponds, swimming pools, and other aquatic environments. Manual waste collection can be time-consuming and inefficient, particularly across large water surfaces.
 
-This project simulates a fleet of autonomous cleaning robots capable of:
+This project simulates water-cleaning robots that navigate a water environment, locate floating waste, avoid obstacles, and collect waste while adapting to changing conditions.
 
-* Navigating different water environments.
-* Detecting and collecting floating waste.
-* Avoiding static and dynamic obstacles.
-* Coordinating with multiple robots.
-* Returning safely to the home base after mission completion.
-* Generating performance statistics and analytical graphs.
+Two MATLAB implementations are included:
 
-The simulation provides a realistic framework for studying autonomous cleaning systems before real-world deployment.
+1. **WaterSurfaceCleaning_usingController.m** — an advanced autonomous control simulation using PID-based heading control, adaptive speed control, predictive obstacle avoidance, and intelligent navigation.
+2. **WaterSurfaceCleaningRobot(2).m** — a multi-robot cleaning simulation featuring coverage path planning, configurable robot deployment, obstacle avoidance, and performance analysis.
+
+Both implementations focus on simulated robot behavior rather than direct control of physical hardware.
 
 ---
 
 ## 🎯 Objectives
 
-* Develop an autonomous water surface cleaning solution.
-* Simulate multiple water environments with unique characteristics.
-* Implement multi-robot coordination.
-* Achieve efficient area coverage using systematic sweep patterns.
-* Avoid collisions with obstacles and other robots.
-* Evaluate mission efficiency through performance metrics.
+- Develop an intelligent water surface cleaning robot simulation.
+- Implement controller-based navigation and movement regulation.
+- Explore different aquatic environments with unique boundaries and obstacles.
+- Detect and collect simulated floating waste.
+- Improve navigation using obstacle avoidance and dynamic path planning.
+- Coordinate multiple robots to improve cleaning efficiency.
+- Simulate environmental disturbances such as wind, waves, and water currents.
+- Evaluate robot performance using measurable simulation metrics.
 
 ---
 
 ## 🚀 Features
 
-### 🌍 Multiple Water Environments
+### 🌍 1. Multiple Water Environments
 
-The simulation supports:
+The simulation supports five environments:
 
-* Lake
-* Pond
-* Swimming Pool
-* River
-* Ocean
+- Lake
+- Pond
+- Swimming Pool
+- River
+- Ocean
 
-Each environment includes:
+Each environment has its own dimensions, water boundaries, obstacle configuration, waste distribution, and movement characteristics.
 
-* Unique boundaries
-* Different dimensions
-* Distinct obstacle layouts
-* Environment-specific trash movement behavior
+The simulation also models environmental disturbances according to the selected environment and disturbance level.
 
----
+### 🎮 2. Controller-Based Autonomous Navigation
 
-### 🤖 Multi-Robot Deployment
+The controller-based implementation focuses on intelligent movement control rather than a physical handheld remote controller.
 
-* Deploy up to **5 autonomous robots**.
-* User-defined robot speeds.
-* Automatic workload distribution.
-* Independent waypoint assignment.
+Its control system includes:
 
----
+- PID-based heading control.
+- Adaptive PID gain adjustment.
+- Adaptive robot speed control.
+- Target-directed navigation.
+- Predictive obstacle avoidance.
+- Predictive inter-robot collision avoidance.
+- Dynamic path replanning.
+- Stuck detection and recovery.
+- Battery and energy management.
+- Coverage monitoring.
 
-### 🧭 Coverage Path Planning
+These mechanisms help the simulated robot navigate toward targets while accounting for obstacles, boundaries, and environmental disturbances.
 
-The robots use a **lawnmower (boustrophedon) coverage pattern** to ensure systematic cleaning of the water surface.
+### 🤖 3. Multi-Robot Deployment
 
-Benefits:
+The multi-robot implementation supports up to **five autonomous robots**.
 
-* High area coverage
-* Reduced overlap
-* Efficient mission completion
+Features include:
 
----
+- Configurable number of robots.
+- User-defined robot speeds.
+- Automatic waypoint distribution.
+- Independent robot movement.
+- Individual robot tracking.
+- Coordinated cleaning activities.
 
-### 🗑️ Intelligent Trash Collection
+This approach allows different robot configurations to be tested within the same simulated environment.
 
-The system simulates floating waste with:
+### 🧭 4. Coverage Path Planning
 
-* Dynamic movement
-* Multiple waste categories
-* Randomized placement
+The multi-robot simulation uses a **lawnmower (boustrophedon) coverage pattern** to generate systematic cleaning waypoints.
 
-Supported waste types:
+The robots sweep across the water surface in alternating directions.
 
-* Plastic
-* Paper
-* Metal
-* Glass
-* Organic
-* Electronic Waste
+Benefits include:
 
----
+- Systematic area coverage.
+- Reduced unnecessary movement.
+- Better distribution of cleaning tasks.
+- More efficient use of robot travel distance.
 
-### 🚧 Obstacle Management
+### 🗑️ 5. Intelligent Waste Collection
 
-The simulation includes:
+The simulation generates floating waste at randomized positions within the water boundaries.
 
-#### Fixed Obstacles
+Waste items move according to simulated environmental conditions.
 
-Examples:
+The simulation uses different visual markers and colors to represent waste items.
 
-* Rocks
-* Pillars
-* Buoys
+Supported conceptual waste categories include:
 
-#### Floating Obstacles
+- Plastic
+- Paper
+- Metal
+- Glass
+- Organic waste
+- Electronic waste
 
-Examples:
+Waste collection is represented by detecting when a robot reaches a waste target and marking that item as collected.
 
-* Driftwood
-* Floating debris
-* Moving barriers
+### 🚧 6. Obstacle Avoidance
 
-Features:
+The simulation includes fixed and floating obstacles represented using different geometric shapes.
 
-* Collision avoidance
-* Dynamic obstacle movement
-* Safe navigation paths
+Examples include:
 
----
+- Rocks
+- Pillars
+- Buoys
+- Floating debris
+- Moving obstacles
 
-### 🤝 Multi-Robot Coordination
+The controller-based implementation uses predictive obstacle avoidance and repulsive navigation forces to help the robot steer away from obstacles.
 
-Robots coordinate using:
+It also accounts for water boundaries and nearby robots when calculating safe movement.
 
-* Path partitioning
-* Inter-robot repulsion
-* Collision prevention
-* Independent task execution
+### 🌬️ 7. Environmental Disturbance Simulation
 
-This minimizes robot congestion and improves efficiency.
+The controller-based implementation models environmental effects, including:
 
----
+- Wind and random gusts.
+- Water currents.
+- Wave-related movement.
+- Small heading disturbances.
 
-### 🏠 Autonomous Return-to-Base
+The disturbance level can be configured to represent different operating conditions.
 
-After:
+These effects allow navigation and control algorithms to be evaluated under more challenging simulated conditions.
 
-* Completing assigned waypoints
-* Collecting remaining trash
+### 🤝 8. Multi-Robot Coordination
 
-Robots automatically return to the designated home base.
+The multi-robot implementation distributes cleaning waypoints among deployed robots.
 
----
+The controller-based implementation also incorporates mechanisms for dynamic task allocation and predictive collision avoidance between robots.
 
-### 📊 Performance Analytics
+These techniques help reduce congestion and support more efficient task execution.
 
-The system generates:
+### 🔋 9. Energy Management and Recovery
 
-* Distance traveled vs Time
-* Trash collected vs Time
-* Collection event timeline
-* Waste-type distribution histogram
+The controller-based implementation includes simulated battery and energy management.
 
-Mission statistics include:
+It tracks energy consumption associated with movement, turning, and environmental disturbances. Battery thresholds can influence the robot's decisions to return to base.
 
-* Collection efficiency
-* Total mission duration
-* Distance traveled by each robot
-* Total distance traveled
-* Number of obstacles
-* Trash-type breakdown
+The simulation also includes stuck detection and recovery mechanisms to help robots escape situations where navigation progress is limited.
+
+### 🏠 10. Autonomous Return to Base
+
+Robots can return to a designated home base when their assigned cleaning tasks are complete.
+
+The controller-based implementation also incorporates battery-related return behavior.
+
+This functionality is simulated; it does not establish that a physical robot can autonomously dock or recharge.
+
+### 📊 11. Performance Analytics
+
+The project evaluates robot behavior using metrics such as:
+
+- Waste collection progress over time.
+- Robot travel distance.
+- Total mission duration.
+- Collection events.
+- Waste distribution.
+- Individual robot performance.
+- Battery and energy behavior in the controller-based simulation.
+
+These measurements help compare navigation strategies and robot configurations.
 
 ---
 
 ## 🏗️ System Architecture
 
+### Controller-Based Autonomous Robot
+
 ```text
-+----------------------+
-| User Configuration   |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Environment Setup    |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Coverage Path Plan   |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Robot Deployment     |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Navigation Module    |
-+----------+-----------+
-           |
-           +----------------+
-           |                |
-           v                v
-+----------------+   +------------------+
-| Trash Detection|   |Obstacle Avoidance|
-+----------------+   +------------------+
-           |
-           v
-+----------------------+
-| Collection Process   |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Return To Base       |
-+----------+-----------+
-           |
-           v
-+----------------------+
-| Performance Analysis |
-+----------------------+
++---------------------------+
+| Environment Configuration |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Robot Initialization      |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Target Selection          |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Navigation Controller     |
+| PID + Adaptive Speed      |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Predictive Obstacle       |
+| and Collision Avoidance   |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Robot Movement Simulation |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Waste Collection          |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Energy and Progress Check |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Replanning / Return Base  |
++---------------------------+
+```
+
+### Multi-Robot Cleaning System
+
+```text
++---------------------------+
+| User Configuration        |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Environment Setup         |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Coverage Path Planning    |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Multi-Robot Deployment    |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Navigation and Coordination|
++-------------+-------------+
+              |
+       +------+------+
+       |             |
+       v             v
++-------------+ +----------------+
+| Waste       | | Obstacle       |
+| Collection  | | Avoidance      |
++------+------+ +--------+-------+
+       |                |
+       +--------+-------+
+                |
+                v
++---------------------------+
+| Return to Home Base       |
++-------------+-------------+
+              |
+              v
++---------------------------+
+| Performance Analysis      |
++---------------------------+
 ```
 
 ---
 
 ## ⚙️ Algorithms Used
 
-### 1. Coverage Path Planning
+### 1. PID Heading Control
 
-A lawnmower sweep strategy is used to generate waypoints across the environment.
+The controller-based implementation uses a PID controller to regulate the robot's heading toward a target direction.
 
-Advantages:
+The controller considers heading error and its accumulated and changing values to determine the appropriate turning response.
 
-* Complete coverage
-* Low computational cost
-* Suitable for structured cleaning tasks
+### 2. Adaptive PID Control
 
----
+The controller adjusts selected PID gains according to navigation conditions, such as heading error, obstacle proximity, and robot speed.
 
-### 2. Obstacle Avoidance
+This helps adapt movement control to different situations.
 
-Robots continuously check:
+### 3. Adaptive Speed Control
 
-* Distance to nearby obstacles
-* Future collision risks
-* Boundary violations
+The robot adjusts its speed according to factors such as turning angle, nearby obstacles, boundaries, and other robots.
 
-The robot modifies its heading whenever an obstacle is detected within a safety radius.
+Speed reduction near hazards helps improve simulated navigation safety.
 
----
+### 4. Predictive Obstacle Avoidance
 
-### 3. Inter-Robot Collision Avoidance
+The navigation system estimates future obstacle positions over a prediction horizon and calculates avoidance responses before a potential collision occurs.
 
-A repulsive-force mechanism is used.
+### 5. Artificial Potential Field Navigation
 
-When robots become too close:
+Artificial potential field (APF) navigation combines attractive forces toward the target with repulsive forces from obstacles and boundaries.
 
-* Repulsion forces are generated.
-* Navigation direction is adjusted.
-* Collisions are avoided.
+The resulting direction guides the robot toward its destination while discouraging unsafe paths.
 
----
+### 6. Dynamic Task Allocation
 
-### 4. Target Pursuit
+The controller-based implementation periodically evaluates cleaning tasks and assigns targets to robots.
 
-Robots move toward:
+This allows the simulation to adapt task assignments as waste is collected and robot conditions change.
 
-1. Detected trash.
-2. Assigned waypoint.
-3. Remaining uncollected trash.
-4. Home base.
+### 7. Stuck Detection and Recovery
 
-Priority-based decision making ensures mission completion.
+The controller monitors robot movement and progress toward its target. When progress is insufficient, recovery behavior helps the robot escape difficult navigation situations.
+
+### 8. Lawn­mower Coverage Planning
+
+The multi-robot implementation generates alternating sweep paths across the water environment and divides waypoints among the deployed robots.
 
 ---
 
 ## 🖥️ Simulation Workflow
 
 ```text
-Start Simulation
-        |
-        v
-Select Environment
-        |
-        v
-Choose Number of Robots
-        |
-        v
-Assign Robot Speeds
-        |
-        v
-Generate Waypoints
-        |
-        v
-Deploy Robots
-        |
-        v
-Move Robots
-        |
-        +---- Detect Trash
-        |
-        +---- Avoid Obstacles
-        |
-        +---- Avoid Other Robots
-        |
-        v
+Start MATLAB Program
+          |
+          v
+Select Water Environment
+          |
+          v
+Configure Robots and Speeds
+          |
+          v
+Initialize Waste and Obstacles
+          |
+          v
+Generate Cleaning Targets
+          |
+          v
+Select or Assign Robot Tasks
+          |
+          v
+Calculate Navigation Direction
+          |
+          v
+Apply Controller and Avoidance
+          |
+          v
+Move Robots and Update Environment
+          |
+          v
 Collect Waste
-        |
-        v
-All Trash Collected?
-      /   \
-    No     Yes
-    |        |
-    |        v
-    |   Return Home
-    |        |
-    +--------+
-             |
-             v
-      Generate Statistics
-             |
-             v
-            End
+          |
+          v
+Update Progress and Energy
+          |
+          v
+More Tasks Remaining?
+       /         \
+     Yes          No
+      |            |
+      v            v
+ Replan or      Return to
+ Continue       Home Base
+      |            |
+      +------------+
+           |
+           v
+ Generate Performance Results
+           |
+           v
+          End
 ```
 
 ---
 
 ## 📈 Performance Metrics
 
-The simulation evaluates:
-
-| Metric                | Description                     |
-| --------------------- | ------------------------------- |
-| Collection Efficiency | Percentage of waste collected   |
-| Mission Time          | Total time required             |
-| Robot Distance        | Distance traveled by each robot |
-| Total Distance        | Combined robot travel distance  |
-| Collection Events     | Waste collection timeline       |
-| Waste Distribution    | Category-wise collected waste   |
+| Metric | Description |
+|---|---|
+| Collection Efficiency | Percentage of simulated waste collected |
+| Mission Duration | Time required to complete the cleaning task |
+| Robot Distance | Distance traveled by each robot |
+| Total Distance | Combined travel distance of the robots |
+| Collection Events | Recorded waste collection events over time |
+| Waste Distribution | Category-wise waste statistics, where implemented |
+| Heading Control | Robot heading regulation during navigation |
+| Obstacle Avoidance | Robot response to nearby and predicted obstacles |
+| Energy Consumption | Simulated energy usage in the controller-based implementation |
+| Battery Level | Estimated remaining battery in the controller-based implementation |
 
 ---
 
 ## ▶️ How to Run
 
-### Step 1
+### Prerequisites
 
-Clone the repository:
+- MATLAB.
+- The relevant project `.m` file.
+- MATLAB functions and dependencies used by the selected implementation.
 
-```bash
-git clone https://github.com/yourusername/Autonomous-Water-Surface-Cleaning-System.git
+### Option 1: Controller-Based Autonomous Simulation
+
+1. Open MATLAB.
+2. Open `WaterSurfaceCleaning_usingController.m`.
+3. Run the script.
+4. Select the environment and configure the available simulation settings.
+5. Observe robot navigation, waste collection, obstacle avoidance, and control behavior.
+
+Run the file using its name without the extension:
+
+```matlab
+WaterSurfaceCleaning_usingController
 ```
 
-### Step 2
+### Option 2: Multi-Robot Cleaning Simulation
 
-Open MATLAB.
+1. Open MATLAB.
+2. Open `WaterSurfaceCleaningRobot(2).m`.
+3. Run the script.
+4. Select the water environment.
+5. Choose the number of robots, from one to five.
+6. Assign the robot speeds.
+7. Observe the cleaning simulation and performance results.
 
-### Step 3
-
-Open:
-
-```text
-WaterSurfaceCleaningRobot.m
-```
-
-### Step 4
-
-Run:
+The second filename contains parentheses, so if MATLAB has trouble resolving it by its base name, rename the file to `WaterSurfaceCleaningRobot.m` and run:
 
 ```matlab
 WaterSurfaceCleaningRobot
 ```
 
-### Step 5
-
-Select:
-
-* Environment
-* Number of robots
-* Robot speeds
-
-The simulation will start automatically.
-
 ---
 
 ## 🔬 Future Enhancements
 
-Potential improvements include:
+Potential extensions include:
 
-* A* path planning
-* Dijkstra-based navigation
-* Reinforcement Learning
-* Swarm Intelligence
-* Real-time sensor integration
-* ROS integration
-* IoT-enabled monitoring
-* Computer Vision based trash detection
-* GPS-based navigation
-* Energy-aware path planning
-* Real-world robotic prototype
+- Integration with physical water-cleaning robot hardware.
+- Wireless remote-control support.
+- Real-time sensor integration.
+- Computer vision for waste detection.
+- GPS-based navigation where suitable.
+- ROS integration.
+- IoT-based monitoring.
+- Reinforcement learning for navigation.
+- Improved multi-robot task allocation.
+- Energy-aware path planning.
+- Real-world testing in controlled aquatic environments.
+
+These are proposed extensions, not claims that the current MATLAB scripts already implement them.
+
+---
+
+## 🌱 Applications
+
+- Floating waste collection research.
+- Swimming pool surface cleaning.
+- Pond and lake cleaning studies.
+- River waste collection simulations.
+- Autonomous robotics education.
+- Multi-robot coordination research.
+- Navigation and control algorithm testing.
 
 ---
 
 ## ⭐ Support
 
-If you found this project useful:
+If you find this project useful:
 
-⭐ Star the repository
-
-🍴 Fork the project
-
-📢 Share your feedback
-
----
-
-### “Clean Water Through Intelligent Automation.”
+- ⭐ Star the repository.
+- 🍴 Fork the project.
+- 📢 Share feedback and suggestions.
