@@ -17,7 +17,7 @@ This project simulates water-cleaning robots that navigate a water environment, 
 Two MATLAB implementations are included:
 
 1. **WaterSurfaceCleaning_usingController.m** — an advanced autonomous control simulation using PID-based heading control, adaptive speed control, predictive obstacle avoidance, and intelligent navigation.
-2. **WaterSurfaceCleaningRobot(2).m** — a multi-robot cleaning simulation featuring coverage path planning, configurable robot deployment, obstacle avoidance, and performance analysis.
+2. **WaterSurfaceCleaningRobot.m** — a multi-robot cleaning simulation featuring coverage path planning, configurable robot deployment, obstacle avoidance, and performance analysis.
 
 Both implementations focus on simulated robot behavior rather than direct control of physical hardware.
 
