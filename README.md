@@ -1,4 +1,4 @@
-# 🌊 Water Surface Cleaning Robot Using Controller
+# 🌊 Water Surface Cleaning Robot
 
 A MATLAB-based simulation project for an intelligent **Water Surface Cleaning Robot** designed to collect floating waste from different aquatic environments. The project explores two approaches to water surface cleaning: **controller-based autonomous navigation** and **multi-robot autonomous cleaning**.
 
